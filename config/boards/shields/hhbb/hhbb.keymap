@@ -18,6 +18,7 @@
         reset: reset {
             compatible = "zmk,behavior-reset";
             label = "RESET";
+            #binding-cells = <0>;
         };
     };
 
