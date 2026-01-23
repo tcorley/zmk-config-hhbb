@@ -15,7 +15,7 @@
 
 / {
     behaviors {
-        reset: reset {
+        zmk_reset: reset {
             compatible = "zmk,behavior-reset";
             label = "RESET";
             #binding-cells = <0>;
@@ -94,7 +94,7 @@
         //        |-------------------------------------------|
         nav_layer {
             bindings = <
-    &trans      &trans       &trans       &trans       &trans &reset      &trans     &trans    &kp UP   &trans
+    &trans      &trans       &trans       &trans       &trans &zmk_reset  &trans     &trans    &kp UP   &trans
     &trans      &trans       &trans       &trans       &bootloader &trans  &kp LEFT   &kp DOWN  &kp RIGHT
     &bt BT_CLR  &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2 &kp C_SLEEP &trans  &trans     &trans    &trans
     &trans      &trans       &trans       &trans       &trans     &trans
