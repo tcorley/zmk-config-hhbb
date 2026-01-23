@@ -14,14 +14,6 @@
 #define OUTER    4
 
 / {
-    behaviors {
-        zmk_reset: reset {
-            compatible = "zmk,behavior-reset";
-            label = "RESET";
-            #binding-cells = <0>;
-        };
-    };
-
     keymap {
         compatible = "zmk,keymap";
 
@@ -33,14 +25,14 @@
         // |-----------------------------------------------------------|
         // |  Z     |  X  |  C  |  V  |  B  |  N  |  M  |  ,  |   .    |
         // |-----------------------------------------------------------|
-        //        | LSFT | NUM |  LGUI  | LALT | SYM | BSPC |
+        //        | LSFT | NUM |  LGUI  | SPC  | SYM | LALT |
         //        |-------------------------------------------|
         default_layer {
             bindings = <
     &kp Q      &kp W       &kp E         &kp R           &kp T      &kp Y     &kp U   &kp I     &kp O     &kp P
     &kp A      &kp S       &kp D         &lt NAV F        &lt OUTER G &kp H     &kp J   &kp K     &kp L
-    &kp Z      &kp X       &kp C         &kp V           &kp B      &kp N     &kp M   &kp COMMA &kp DOT
-    &kp LSHIFT &lt NUM SPACE &kp LGUI      &kp LALT        &lt SYM ENTER &kp BSPC
+    &mt LCTRL Z &kp X       &kp C         &kp V           &kp B      &kp N     &kp M   &kp COMMA &kp DOT
+    &kp LSHIFT  &lt NUM SPACE &kp LGUI      &kp SPACE       &lt SYM ENTER &kp LALT
             >;
         };
 
@@ -84,7 +76,7 @@
 
         // Navigation / system layer
         // |-----------------------------------------------------------------|
-        // | TRNS | TRNS | TRNS | TRNS | TRNS | RST  | TRNS | TRNS |  UP | TRNS |
+        // | TRNS | TRNS | TRNS | TRNS | TRNS | BTL  | TRNS |  UP | TRNS | TRNS |
         // |-----------------------------------------------------------------|
         // | TRNS | TRNS | TRNS | TRNS | BTL  | TRNS | LEFT | DOWN | RIGHT |
         // |-----------------------------------------------------------------|
@@ -94,7 +86,7 @@
         //        |-------------------------------------------|
         nav_layer {
             bindings = <
-    &trans      &trans       &trans       &trans       &trans &zmk_reset  &trans     &trans    &kp UP   &trans
+    &trans      &trans       &trans       &trans       &trans &bootloader &trans     &kp UP    &trans &trans
     &trans      &trans       &trans       &trans       &bootloader &trans  &kp LEFT   &kp DOWN  &kp RIGHT
     &bt BT_CLR  &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2 &kp C_SLEEP &trans  &trans     &trans    &trans
     &trans      &trans       &trans       &trans       &trans     &trans
